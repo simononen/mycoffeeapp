@@ -12,11 +12,13 @@ import 'hammerjs';
 
 import { MaterialModule } from './material/material.module';
 import { CoffeeComponent } from './coffee/coffee.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoffeeComponent
+    CoffeeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
