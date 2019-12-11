@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Coffee } from '../logic/logic';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { GeolocationService } from '../geolocation.service';
+import { TastingRating } from '../logic/TastingRating';
 
 @Component({
   selector: 'app-coffee',
@@ -91,6 +92,14 @@ export class CoffeeComponent implements OnInit, OnDestroy {
 
   get notes() {
     return this.coffeeForm.get('notes');
+  }
+
+  tastingRatingChanges(checked: boolean) {
+    if (checked) {
+      this.coffeeForm.value.testingRating = new TastingRating();
+    } else {
+      this.coffeeForm.controls.tastingRating.reset();
+    }
   }
 
   ngOnDestroy(): void {

@@ -1,106 +1,114 @@
-<form [formGroup]="coffeeForm">
-    <div *ngIf="coffeeForm.hasError('whitespace')">
-        Please avoid white spaces
-    </div>
-
-
-    <mat-card>
-        <mat-form-field appearance='outline'>
-            <mat-label>Enter Coffee Name</mat-label>
-            <input matInput placeholder="Coffee Name" formControlName="coffeeName">
-            <mat-icon *ngIf="coffeeName.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-            <mat-hint *ngIf="coffeeName.invalid && (coffeeName.dirty || coffeeName.touched)"
-                class="text-xs text-red-500 relative bottom-20">
-                <div *ngIf="coffeeName.errors.required">Name is required</div>
-                <div *ngIf="coffeeName.errors.minlength">Name must be atleast 3 characters</div>
-            </mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance='outline'>
-            <mat-label>Type</mat-label>
-            <mat-select placeholder="Coffee Type" formControlName="type">
-                <mat-option *ngFor="let type of types" value="{{ type }}">{{ type }}</mat-option>
-            </mat-select>
-            <mat-icon *ngIf="type.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-            <mat-hint *ngIf="type.invalid && (type.dirty || type.touched)"
-                class="text-xs text-red-500 relative bottom-20">
-                <div *ngIf="type.errors.required">Name is required</div>
-                <div *ngIf="type.errors.minlength">Name must be atleast 3 characters</div>
-            </mat-hint>
-        </mat-form-field>
-    </mat-card>
-
-    <mat-card>
-        <mat-form-field appearance='outline'>
-            <mat-label>Enter Place</mat-label>
-            <input matInput placeholder="Place" formControlName="place">
-            <mat-icon *ngIf="place.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-            <mat-hint *ngIf="place.invalid && (place.dirty || place.touched)"
-                class="text-xs text-red-500 relative bottom-20">
-                <div *ngIf="place.errors.required">Place is required</div>
-            </mat-hint>
-        </mat-form-field>
-        <div formGroupName="location">
-            <mat-form-field appearance='outline'>
-                <mat-label>Enter Address</mat-label>
-                <input matInput placeholder="Address" formControlName="address">
-                <mat-icon *ngIf="address.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-                <mat-hint *ngIf="address.invalid && (address.dirty || address.touched)"
-                    class="text-xs text-red-500 relative bottom-20">
-                    <div *ngIf="address.errors.required">Address is required</div>
-                </mat-hint>
-            </mat-form-field>
-            <mat-form-field appearance='outline'>
-                <mat-label>Enter City</mat-label>
-                <input matInput placeholder="City" formControlName="city">
-                <mat-icon *ngIf="city.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-                <mat-hint *ngIf="city.invalid && (city.dirty || city.touched)"
-                    class="text-xs text-red-500 relative bottom-20">
-                    <div *ngIf="city.errors.required">City is required</div>
-                </mat-hint>
-            </mat-form-field>
+<div fxFlex>
+    <form [formGroup]="coffeeForm">
+        <div *ngIf="coffeeForm.hasError('whitespace')">
+            Please avoid white spaces
         </div>
-    </mat-card>
 
+
+        <mat-card class="m-5">
+            <mat-card-title>
+                Basic Coffee Information
+            </mat-card-title>
+            <mat-form-field appearance='outline' class="full-width">
+                <mat-label>Enter Coffee Name</mat-label>
+                <input matInput placeholder="Coffee Name" formControlName="coffeeName">
+                <mat-icon *ngIf="coffeeName.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                <mat-hint *ngIf="coffeeName.invalid && (coffeeName.dirty || coffeeName.touched)"
+                    class="text-xs text-red-500 relative bottom-20">
+                    <div *ngIf="coffeeName.errors.required">Name is required</div>
+                    <div *ngIf="coffeeName.errors.minlength">Name must be atleast 3 characters</div>
+                </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance='outline' class="full-width">
+                <mat-label>Type</mat-label>
+                <mat-select placeholder="Coffee Type" formControlName="type">
+                    <mat-option *ngFor="let type of types" value="{{ type }}">{{ type }}</mat-option>
+                </mat-select>
+                <mat-icon *ngIf="type.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                <mat-hint *ngIf="type.invalid && (type.dirty || type.touched)"
+                    class="text-xs text-red-500 relative bottom-20">
+                    <div *ngIf="type.errors.required">Name is required</div>
+                    <div *ngIf="type.errors.minlength">Name must be atleast 3 characters</div>
+                </mat-hint>
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card class="m-5">
+            <mat-card-title>
+                Place Information
+            </mat-card-title>
+            <mat-form-field appearance='outline' class="full-width">
+                <mat-label>Enter Place</mat-label>
+                <input matInput placeholder="Place" formControlName="place">
+                <mat-icon *ngIf="place.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                <mat-hint *ngIf="place.invalid && (place.dirty || place.touched)"
+                    class="text-xs text-red-500 relative bottom-20">
+                    <div *ngIf="place.errors.required">Place is required</div>
+                </mat-hint>
+            </mat-form-field>
+            <div formGroupName="location">
+                <mat-form-field appearance='outline' class="full-width">
+                    <mat-label>Enter Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address">
+                    <mat-icon *ngIf="address.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                    <mat-hint *ngIf="address.invalid && (address.dirty || address.touched)"
+                        class="text-xs text-red-500 relative bottom-20">
+                        <div *ngIf="address.errors.required">Address is required</div>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance='outline' class="full-width">
+                    <mat-label>Enter City</mat-label>
+                    <input matInput placeholder="City" formControlName="city">
+                    <mat-icon *ngIf="city.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                    <mat-hint *ngIf="city.invalid && (city.dirty || city.touched)"
+                        class="text-xs text-red-500 relative bottom-20">
+                        <div *ngIf="city.errors.required">City is required</div>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <mat-card class="m-5">
+            <mat-card-title>
+                Ratings
+            </mat-card-title>
+            <mat-card-subtitle>Overrall Rating</mat-card-subtitle>
+            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="rating" class="full-width"></mat-slider>
+            <mat-slide-toggle #tastingSelector (change)="tastingRatingChanges(tastingSelector.checked)">Tasting Rating</mat-slide-toggle>
+            <div>
+                <section id="id" formGroupName="tastingRating"
+                    *ngIf="tastingSelector.checked">
+                    <mat-label>Aroma</mat-label>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aromaRating" class="full-width"></mat-slider>
+                    <mat-label>Flavour</mat-label>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="flavorRating" class="full-width"></mat-slider>
+                    <mat-label>Intensity</mat-label>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="intensityRating" class="full-width"></mat-slider>
+                    <mat-label>Sweetness</mat-label>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="sweetnessRating" class="full-width"></mat-slider>
+                    <mat-label>Aftertaste</mat-label>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aftertasteRating" class="full-width"></mat-slider>
+                </section>
+            </div>
+
+        </mat-card>
+
+        <mat-card class="m-5">
+            <mat-form-field appearance='outline' class="full-width">
+                <mat-label>Enter Notes</mat-label>
+                <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+                <mat-icon *ngIf="notes.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
+                <mat-hint *ngIf="notes.invalid && (notes.dirty || notes.touched)"
+                    class="text-xs text-red-500 relative bottom-20">
+                    <div *ngIf="notes.errors.required">Notes is required</div>
+                    <div *ngIf="notes.errors.minlength">Notes must be atleast 10 characters</div>
+                </mat-hint>
+            </mat-form-field>
+        </mat-card>
+    </form>
     <mat-card>
-        <mat-card-subtitle>Overrall Rating</mat-card-subtitle>
-        <mat-slider max="10" thumbLabel tickInterval="1" formControlName="rating"></mat-slider>
-        <mat-slide-toggle #tastingSelector>Tasting Rating</mat-slide-toggle>
-        <section id="id" formGroupName="tastingRating" *ngIf="tastingSelector.checked">
-            <mat-label>Aroma</mat-label>
-            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aromaRating"></mat-slider>
-            <mat-label>Flavour</mat-label>
-            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="flavorRating"></mat-slider>
-            <mat-label>Intensity</mat-label>
-            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="intensityRating"></mat-slider>
-            <mat-label>Sweetness</mat-label>
-            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="sweetnessRating"></mat-slider>
-            <mat-label>Aftertaste</mat-label>
-            <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aftertasteRating"></mat-slider>
-            <!-- aroma: number;
-    body: number;
-    flavour: number;
-    intensity: number;
-    sweetness: number;
-    aftertaste: number; -->
-        </section>
-    </mat-card>
-
-    <mat-card>
-        <mat-form-field appearance='outline'>
-            <mat-label>Enter Notes</mat-label>
-            <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
-            <mat-icon *ngIf="notes.valid" class="text-green-500" matSuffix>check_circle</mat-icon>
-            <mat-hint *ngIf="notes.invalid && (notes.dirty || notes.touched)"
-                class="text-xs text-red-500 relative bottom-20">
-                <div *ngIf="notes.errors.required">Notes is required</div>
-                <div *ngIf="notes.errors.minlength">Notes must be atleast 10 characters</div>
-            </mat-hint>
-        </mat-form-field>
-    </mat-card>
-</form>
-
-<mat-card>
-    <pre>
+        <pre>
         {{ coffeeForm.value | json}}
     </pre>
-</mat-card>
+    </mat-card>
+</div>
