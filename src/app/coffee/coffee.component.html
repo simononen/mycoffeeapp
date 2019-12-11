@@ -74,20 +74,25 @@
             </mat-card-title>
             <mat-card-subtitle>Overrall Rating</mat-card-subtitle>
             <mat-slider max="10" thumbLabel tickInterval="1" formControlName="rating" class="full-width"></mat-slider>
-            <mat-slide-toggle #tastingSelector (change)="tastingRatingChanges(tastingSelector.checked)">Tasting Rating</mat-slide-toggle>
+            <mat-slide-toggle #tastingSelector (change)="tastingRatingChanges(tastingSelector.checked)">Tasting Rating
+            </mat-slide-toggle>
             <div>
-                <section id="id" formGroupName="tastingRating"
-                    *ngIf="tastingSelector.checked">
+                <section id="id" formGroupName="tastingRating" *ngIf="tastingSelector.checked">
                     <mat-label>Aroma</mat-label>
-                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aromaRating" class="full-width"></mat-slider>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aromaRating" class="full-width">
+                    </mat-slider>
                     <mat-label>Flavour</mat-label>
-                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="flavorRating" class="full-width"></mat-slider>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="flavorRating" class="full-width">
+                    </mat-slider>
                     <mat-label>Intensity</mat-label>
-                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="intensityRating" class="full-width"></mat-slider>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="intensityRating"
+                        class="full-width"></mat-slider>
                     <mat-label>Sweetness</mat-label>
-                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="sweetnessRating" class="full-width"></mat-slider>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="sweetnessRating"
+                        class="full-width"></mat-slider>
                     <mat-label>Aftertaste</mat-label>
-                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aftertasteRating" class="full-width"></mat-slider>
+                    <mat-slider max="10" thumbLabel tickInterval="1" formControlName="aftertasteRating"
+                        class="full-width"></mat-slider>
                 </section>
             </div>
 
@@ -106,7 +111,11 @@
             </mat-form-field>
         </mat-card>
     </form>
-    <mat-card>
+    <mat-card class="m-5">
+        <div fxLayoutGap="10px">
+            <button mat-raised-button (click)="cancel()">Cancel</button>
+            <button mat-raised-button (click)="save()" color="accent">Save</button>
+        </div>
         <pre>
         {{ coffeeForm.value | json}}
     </pre>

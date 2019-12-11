@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GeolocationService } from './geolocation.service';
 import { DataService } from './data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
