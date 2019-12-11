@@ -13,7 +13,23 @@ import 'hammerjs';
 import { MaterialModule } from './material/material.module';
 import { CoffeeComponent } from './coffee/coffee.component';
 import { ListComponent } from './list/list.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: ListComponent
+  },
+  {
+    path: 'coffee',
+    component: CoffeeComponent
+  },
+  {
+    path: 'coffee/:id',
+    component: CoffeeComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +37,8 @@ import { ListComponent } from './list/list.component';
     ListComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

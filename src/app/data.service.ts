@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Coffee } from './logic/logic';
+import { PlaceLocation } from './logic/PlaceLocation';
 
 @Injectable({
   providedIn: 'root'
