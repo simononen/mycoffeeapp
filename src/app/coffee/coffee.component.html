@@ -74,7 +74,7 @@
             </mat-card-title>
             <mat-card-subtitle>Overrall Rating</mat-card-subtitle>
             <mat-slider max="10" thumbLabel tickInterval="1" formControlName="rating" class="full-width"></mat-slider>
-            <mat-slide-toggle #tastingSelector (change)="tastingRatingChanges(tastingSelector.checked)">Tasting Rating
+            <mat-slide-toggle #tastingSelector [checked]="tastingEnabled" (change)="tastingRatingChanges(tastingSelector.checked)">Tasting Rating
             </mat-slide-toggle>
             <div>
                 <section id="id" formGroupName="tastingRating" *ngIf="tastingSelector.checked">
@@ -114,10 +114,7 @@
     <mat-card class="m-5">
         <div fxLayoutGap="10px">
             <button mat-raised-button (click)="cancel()">Cancel</button>
-            <button mat-raised-button (click)="save()" color="accent">Save</button>
+            <button mat-raised-button (click)="save(coffeeForm)" color="accent">Save</button>
         </div>
-        <pre>
-        {{ coffeeForm.value | json}}
-    </pre>
     </mat-card>
 </div>

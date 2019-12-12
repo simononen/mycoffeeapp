@@ -16,22 +16,22 @@ export class DataService {
     private http: HttpClient
   ) { }
 
-  getList(callback) {
-    // const list = [
-    //   new Coffee('Double expresso', 'Sunny Cafe', new PlaceLocation('123 Market Street', 'San Francisco')),
-    //   new Coffee('Caramel Americano', 'Star Coffee', new PlaceLocation('Gran Via 34', 'Madrid'))
-    // ];
-    // callback(list);
+  get(coffeeId: string, callback) {
+    this.http.get(`${this.apiUrl}/coffees/${coffeeId}`)
+      .subscribe(response => {
+        callback(response)
+      });
+  }
 
+  getList(callback) {
     this.http.get(`${this.apiUrl}/coffees`)
       .subscribe(response => {
         console.log('Response ', response);
         callback(response);
       });
-
   }
 
-  save(coffee, callback) {
+  save(coffee: Coffee, callback) {
     if (coffee._id) {
       // It is an update
       this.http.put(`${this.apiUrl}/coffees/${coffee._id}`, coffee)
@@ -47,7 +47,6 @@ export class DataService {
           callback(true);
         });
     }
-    // callback(true);
   }
 
 }

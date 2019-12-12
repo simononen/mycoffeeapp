@@ -1,8 +1,10 @@
 export class TastingRating {
-    aroma: number;
-    body: number;
-    flavour: number;
-    intensity: number;
-    sweetness: number;
-    aftertaste: number;
+    body?: number;
+    constructor(
+        public aroma: number = null,
+        public flavour: number = null,
+        public intensity: number = null,
+        public sweetness: number = null,
+        public aftertaste: number = null
+    ) {}
 }
