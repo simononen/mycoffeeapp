@@ -17,6 +17,8 @@ import { ListComponent } from './list/list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   {
@@ -47,7 +49,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     FlexLayoutModule,
 
-    MaterialModule
+    MaterialModule,
+
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     GeolocationService,
