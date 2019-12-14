@@ -12,6 +12,12 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    this.updateNetworkStatusUI()
+
+    window.addEventListener('online', this.updateNetworkStatusUI);
+    window.addEventListener('offline', this.updateNetworkStatusUI);
+
     if ((navigator as any).standalone === false) {
       this.snackbar.open('You can add this app to your home screen', '', { duration: 3000 });
     }
@@ -35,5 +41,14 @@ export class AppComponent implements OnInit {
         });
       }
     }
+  }
+
+   updateNetworkStatusUI(): void {
+    if (navigator.onLine) {
+      (document.querySelector('body') as any).style = "";
+    } else {
+      (document.querySelector('body') as any).style = "filter: grayscale(1)";
+    }
+    
   }
 }
