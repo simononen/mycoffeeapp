@@ -18,7 +18,7 @@ export class CoffeeComponent implements OnInit, OnDestroy {
 
   routingSubscription: any;
 
-  tastingEnabled: Boolean = false;
+  tastingEnabled: boolean = false;
 
   coffeeForm: FormGroup;
 

@@ -14,7 +14,7 @@ import 'hammerjs';
 import { MaterialModule } from './material/material.module';
 import { CoffeeComponent } from './coffee/coffee.component';
 import { ListComponent } from './list/list.component';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -34,6 +34,10 @@ const routes: Routes = [
     component: CoffeeComponent
   }
 ];
+
+RouterModule.forRoot(routes, {
+  preloadingStrategy: PreloadAllModules
+})
 @NgModule({
   declarations: [
     AppComponent,

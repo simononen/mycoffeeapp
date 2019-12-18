@@ -1,24 +1,26 @@
 <div fxFlex>
-    <mat-card class="m-5" *ngFor="let coffee of list">
+    <mat-card class="m-5" *ngFor="let coffee of list;">
         <mat-card-title>{{ coffee.name }}</mat-card-title>
         <mat-card-subtitle>{{ coffee.place }}</mat-card-subtitle>
         <mat-card-content>
 
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button (click)="map(coffee)">
+            <button mat-button aria-label="map" type="button" (click)="map(coffee)">
                 <mat-icon>map</mat-icon>
             </button>
-            <button mat-button (click)="share(coffee)">
+            <button mat-button aria-label="share" type="button" (click)="share(coffee)">
                 <mat-icon>share</mat-icon>
             </button>
-            <button mat-button (click)="details(coffee)">
+            <button mat-button aria-label="details" type="button" (click)="details(coffee)">
                 <mat-icon>list</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>
 
-    <a [routerLink]="['/coffee']" id="btnCreate"><button mat-fab>
+    <a [routerLink]="['/coffee']" id="btnCreate">
+        <button mat-fab aria-label="add" type="button">
             <mat-icon>Add</mat-icon>
-        </button></a>
+        </button>
+    </a>
 </div>
